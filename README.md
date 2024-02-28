@@ -1,3 +1,9 @@
+Run Step :
+frontend as well backend 
+
+npm install
+docker-compose up -d
+
 ![Screenshot from 2024-02-28 10-20-40](https://github.com/AyushRudra/Docker-Mern/assets/153734147/24fc87af-b4db-4eaf-a477-fa1ff06ed704)
 ![Screenshot from 2024-02-28 10-20-36](https://github.com/AyushRudra/Docker-Mern/assets/153734147/9683f7b4-c24b-42c5-b37f-eef5fffb8e88)
 ![Screenshot from 2024-02-28 10-17-24](https://github.com/AyushRudra/Docker-Mern/assets/153734147/2a636792-3d0f-49c4-9caf-534eacc37490)
