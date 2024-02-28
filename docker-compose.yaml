@@ -1,0 +1,51 @@
+version: '3'
+services:
+
+  front:
+    build: # only when Dockerfile exists
+      context: './react-docker'
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    container_name: react-container
+    environment:
+      - WATCHPACK_POLLING=true # after reload again and again watch env file 
+    networks:
+      - mern-stack-network 
+    volumes:
+      - ./react-docker:/app  # bind directory with host:container
+    depends_on:
+      - backend # most important things
+
+  backend:
+    build:
+      context: './express-docker'
+      dockerfile: Dockerfile
+    ports:
+      - 5500:5500
+    container_name: express-container
+    networks:
+      - mern-stack-network
+    volumes:
+      - ./express-docker:/app
+    depends_on:
+      - mongo
+
+  mongo: # when 2 container in same network then we can use service name as a ip
+    image: mongo
+    ports:
+      - 27017:27017
+    container_name: mongo-container
+    networks:
+      - mern-stack-network
+    volumes:
+      - mongoData:/data/db
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=root
+    #   - MONGO_INITDB_ROOT_PASSWORD=root
+
+networks:
+  mern-stack-network:
+
+volumes:
+  mongoData:
