@@ -1,5 +1,5 @@
 Run Step :
-frontend as well backend 
+frontend as well backend \
 npm install \
 docker-compose up -d
 
